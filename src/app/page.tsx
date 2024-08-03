@@ -1,7 +1,11 @@
-import React from "react";
+import Hero from "@/modules/Hero";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div className="overflow-hidden">
+      <Hero />
+    </div>
+  );
 };
 
 export default Home;

@@ -22,6 +22,7 @@
       "@/public/*": ["public/*"],
       "@/app/*": ["src/app/*"],
       "@/utils/*": ["src/utils/*"],
+      "@/types/*": ["src/types/*"],
       "@/providers/*": ["src/providers/*"],
       "@/models/*": ["src/models/*"],
       "@/api/*": ["src/app/api/*"],
