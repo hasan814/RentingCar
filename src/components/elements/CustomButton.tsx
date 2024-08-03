@@ -4,15 +4,16 @@ import { CustomButtonProps } from "@/types/index";
 
 const CustomButton = ({
   title,
+  btnType,
   containerStyles = "",
   handleClick,
 }: CustomButtonProps) => {
   return (
     <button
-      className={`custom-btn ${containerStyles}`}
       disabled={false}
-      type={"button"}
       onClick={handleClick}
+      type={btnType || "button"}
+      className={`custom-btn ${containerStyles}`}
     >
       <span className={`flex-1`}>{title}</span>
     </button>
