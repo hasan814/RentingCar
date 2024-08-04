@@ -4,3 +4,8 @@ export interface CustomButtonProps {
   handleClick?: () => void;
   btnType?: "button" | "submit";
 }
+
+export interface SearchManuFacturerProps {
+  setManufacturer: (manufacturer: string) => void;
+  manufacturer: string;
+}
