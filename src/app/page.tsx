@@ -1,8 +1,15 @@
 import CustomFilter from "@/modules/CustomFilter";
 import Hero from "@/modules/Hero";
 import SearchBar from "@/modules/SearchBar";
+import { fetchCars } from "../utils";
 
-const Home = () => {
+const Home = async () => {
+  // =========== Fetch API ============
+  const allCars = await fetchCars();
+
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
+  // =========== Rendering ============
   return (
     <div className="overflow-hidden">
       <Hero />
@@ -19,6 +26,14 @@ const Home = () => {
             <CustomFilter />
           </div>
         </div>
+        {!isDataEmpty ? (
+          <section>We Have Cars</section>
+        ) : (
+          <div className="home__error-container">
+            <h2 className="text-black text-xl font-bold">Oops, no results</h2>
+            <p>{allCars?.message}</p>
+          </div>
+        )}
       </div>
     </div>
   );
