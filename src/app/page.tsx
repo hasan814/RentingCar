@@ -1,7 +1,10 @@
-import CustomFilter from "@/modules/CustomFilter";
-import Hero from "@/modules/Hero";
-import SearchBar from "@/modules/SearchBar";
+import { v4 as uuidv4 } from "uuid";
 import { fetchCars } from "../utils";
+
+import CustomFilter from "@/modules/CustomFilter";
+import SearchBar from "@/modules/SearchBar";
+import CarCard from "@/modules/CarCard";
+import Hero from "@/modules/Hero";
 
 const Home = async () => {
   // =========== Fetch API ============
@@ -27,7 +30,13 @@ const Home = async () => {
           </div>
         </div>
         {!isDataEmpty ? (
-          <section>We Have Cars</section>
+          <section>
+            <div className="home__cars-wrapper">
+              {allCars?.map((car) => (
+                <CarCard key={uuidv4()} car={car} />
+              ))}
+            </div>
+          </section>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results</h2>
